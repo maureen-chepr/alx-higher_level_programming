@@ -1,63 +1,55 @@
 #!/usr/bin/python3
-"""
-Singly linked list Module
-"""
+"""creates node for singly linked lists"""
 
 
 class Node:
-    """
-    class Node
-    Attributes:
-        data (int): data stored in the node
-        next_node: pointer to the next node
-    """
+    """creates node for singly linked lists"""
 
     def __init__(self, data, next_node=None):
-        """initialing class"""
-
+        """initializes node instance
+        Args:
+            data: data in node
+            next_node: next node in list"""
         self.data = data
-        self.next_node = None
+        self.next_node = next_node
 
     @property
     def data(self):
-        """attribute getter"""
-
+        """gets data"""
         return self.__data
 
     @data.setter
     def data(self, value):
-        """attribute setter"""
+        """sets data"""
         if not isinstance(value, int):
-            raise TypeError("data must be integer")
+            raise TypeError('data must be an integer')
         self.__data = value
 
     @property
     def next_node(self):
-        """property getter"""
-
+        """gets link to next node"""
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        """next_node setter"""
-
+        """sets link to next node"""
         if not isinstance(value, Node) and value is not None:
-            raise TypeError("next_node must be a Node object")
+            raise TypeError('next_node must be a Node object')
         else:
             self.__next_node = value
 
 
 class SinglyLinkedList:
-    """singly linked list attributes"""
+    """defines a singly linked list"""
 
     def __init__(self):
-        """initialize class"""
-
+        """initializes and prints list"""
         self.__head = None
 
     def sorted_insert(self, value):
-        """Inserts new Node into the correct sorted position"""
-
+        """inserts a node
+        Args:
+            value: data value of node"""
         if self.__head is None:
             self.__head = Node(value, self.__head)
             return
