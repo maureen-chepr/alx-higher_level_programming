@@ -7,8 +7,8 @@ class Square:
     Attributes for Square class
     size(int): size of square
     """
-   
-   def __init__(self, size=0):
+
+    def __init__(self, size=0):
         """Methods initialized and exception raised"""
 
         if type(size) is not int:
@@ -23,7 +23,5 @@ class Square:
         Return:
              area
         """
-        area = self.__size * self.__size
+        area = self.__size ** 2
         return area
-
-
