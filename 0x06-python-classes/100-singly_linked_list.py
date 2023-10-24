@@ -27,10 +27,9 @@ class Node:
     @data.setter
     def data(self, value):
         """attribute setter"""
-        if not type(value) is int:
+        if not isinstance(value, int):
             raise TypeError("data must be integer")
-        else:
-            self.__data = value
+        self.__data = value
 
     @property
     def next_node(self):
@@ -47,6 +46,7 @@ class Node:
         else:
             self.__next_node = value
 
+
 class SinglyLinkedList:
     """singly linked list attributes"""
 
@@ -55,28 +55,22 @@ class SinglyLinkedList:
 
         self.__head = None
 
-    def __str__(self):
-        result = ""
-        temp = self.__head
-        while temp is not None:
-            result += str(self.data)
-            result += '\n'
-            temp = temp.__next_node
-        return result
-
     def sorted_insert(self, value):
         """Inserts new Node into the correct sorted position"""
 
         if self.__head is None:
-            self.__head = Node(value)
-        else:
-            new_node = Node(value)
-            temp = self.__head
-            while temp is not None:
-                if temp.__next_node is None:
-                    temp.__next_node = new_node
-                    new_node.__next_node = None
-                if new_node.__data < temp.__next_node.__data:
-                    new_node.__next_node = temp.__next_node
-                    temp.__next_node = new_node
-                temp = temp.__next_node
+            self.__head = Node(value, self.__head)
+            return
+        new_node = Node(value, self.__head)
+        self.__head = new_node
+
+    def __str__(self):
+        """ creates a list of linked list, sorts, and prints"""
+        my_list = []
+        runner = self.__head
+        while runner is not None:
+            my_list.append(runner.data)
+            runner = runner.next_node
+        my_list.sort()
+        final = '\n'.join(str(elem) for elem in my_list)
+        return final
