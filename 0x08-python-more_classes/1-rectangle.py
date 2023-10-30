@@ -25,7 +25,7 @@ class Rectangle:
     def width(self):
         """
         width getter
-        returns: 
+        returns:
         width of the Rectangle
         """
 
