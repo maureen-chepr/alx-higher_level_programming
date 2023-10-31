@@ -1,0 +1,96 @@
+Testing add_integer function
+
+add_integer module
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Addition of two positive integers
+>>> add_integer(4, 3)
+7
+
+Addition of +ve int and a -ve int
+>>> add_integer(4, -3)
+1
+
+Addition of one int
+>>> add_integer(4)
+102
+
+Addition of float and -ve int
+>>> add_integer(4.2, -2)
+2
+
+Addition of int and string
+>>> add_integer(4, "school")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+Addition of string and int
+>>> add_integer("school", 4)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+Addition of empty input
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Addition two -ve int
+>>> add_integer(-2, -2)
+-4
+
+Addition of two -ve floats
+>>> add_integer(-2.4, -2.4)
+-4
+
+Addition of a single -ve int
+>>> add_integer(-3)
+95
+
+Addition of a single -ve float
+>>> add_integer(-3.5)
+95
+
+Addition of -ve int and string
+>>> add_integer(-4, "school")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+Addition of a string and -ve int
+>>> add_integer("school", -4)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+Addition of float and string
+>>> add_integer(2.5, "school")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+Addition of a string and a float
+>>> add_integer("school", 2.5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+Addition of float overflow
+>>> add_integer(3, float('inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+Addition of NaN
+>>> add_integer(3, float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
+Addition of more than 2Args
+>>> add_integer(1, 2, 3)
+Traceback (most recent call last):
+...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given

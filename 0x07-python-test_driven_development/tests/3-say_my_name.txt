@@ -1,0 +1,37 @@
+#Test case for Say my name
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+say my name with no Args
+	>>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+say my name with more than 2Args
+	>>> say_my_name('muhindi', 'ken', 'ben')
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+say my name with non str Args
+	>>> say_my_name(9)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+say my name with first Arg as non str
+	>>> say_my_name(9, 'ben')
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+say my name with 2Args as non str
+	>>> say_my_name('ken', 3)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+say my name with correct input
+	>>> say_my_name('Muhindi', 'Steve')
+	My name is Muhindi Steve
