@@ -1,85 +1,83 @@
 #Test cases for matrix multiplication using Numpy
 
->>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 
 matrix mul with m_a as non list
 	>>> m_a = ([4, 1], [7, 3])
     	>>> m_b = [[5, 2], [8, 6]]
-    	>>> matrix_mul(m_a, m_b)
-    	Traceback (most recent call last):
-        ...
-	TypeError: m_a must be a list and m_b must be a list
+    	>>> lazy_matrix_mul(m_a, m_b)
+    	array([[28, 14],
+               [59, 32]])
 
 matrix mul with m_b as non list
         >>> m_a = [[4, 1], [7, 3]]
         >>> m_b = ([5, 2], [8, 6])
-        >>> matrix_mul(m_a, m_b)
-        Traceback (most recent call last):
-        ...
-        TypeError: m_a must be a list and m_b must be a list
+	>>> lazy_matrix_mul(m_a, m_b)
+        array([[28, 14],
+               [59, 32]])
 
 matrix mul with m_a not a list of lists
 	>>> m_a = [1, 2, 3, 4]
 	>>> m_b = [[5, 6], [7, 8]]
-	>>> matrix_mul(m_a, m_b)
+	>>> lazy_matrix_mul(m_a, m_b)
 	Traceback (most recent call last):
         ...
-	TypeError: m_a must be a list of lists
+	ValueError: shapes (4,) and (2,2) not aligned: 4 (dim 0) != 2 (dim 0)
 
 matrix mul with m_b not a list of lists
 	>>> m_a = [[1, 2], [3, 4]]
 	>>> m_b = 123
-	>>> matrix_mul(m_a, m_b)
-        Traceback (most recent call last):
-        ...
-        TypeError: m_a must be a list and m_b must be a list
+	>>> lazy_matrix_mul(m_a, m_b)
+        array([[123, 246],
+               [369, 492]])
 
 matrix mul with no Args
-	>>> matrix_mul()
+	>>> lazy_matrix_mul()
     	Traceback (most recent call last):
         ...
-    	TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+    	TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
 
 matrix mul with 1Args
-	>>> matrix_mul([[5, 2]])
+	>>> lazy_matrix_mul([[5, 2]])
     	Traceback (most recent call last):
         ...
-    	TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+    	TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
 
 matrix mul m_a with non int or float
 	>>> m_a = [[4, "a"], [7, 3]]
         >>> m_b = [[5, 2], [8, 6]]
-        >>> matrix_mul(m_a, m_b)
+        >>> lazy_matrix_mul(m_a, m_b)
         Traceback (most recent call last):
         ...
-	TypeError: m_a should contain only integers or floats
+	ValueError: data type must provide an itemsize
 
 matrix mul m_b with non int or float
         >>> m_a = [[4, 3], [7, 3]]
         >>> m_b = [[5, "a"], [8, 6]]
-        >>> matrix_mul(m_a, m_b)
+        >>> lazy_matrix_mul(m_a, m_b)
         Traceback (most recent call last):
         ...
-        TypeError: m_b should contain only integers or floats
+        ValueError: data type must provide an itemsize
 
 matrix mul with uneven m_b matrix
 	>>> m_a = [[5, 4, 3], [7, 9, 6]]
     	>>> m_b = [[3, 5], [7, 1]]
-    	>>> matrix_mul(m_a, m_b)
+    	>>> lazy_matrix_mul(m_a, m_b)
     	Traceback (most recent call last):
         ...
-	ValueError: m_a and m_b can't be multiplied
+	ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
 
 matrix mul with uneven m_a matrix
        	>>> m_a = [[3, 5, 6], [7, 1, 8]]
 	>>> m_b = [[5, 4], [7, 9]]
-        >>> matrix_mul(m_a, m_b)
+        >>> lazy_matrix_mul(m_a, m_b)
         Traceback (most recent call last):
 	...
-	ValueError: m_a and m_b can't be multiplied
+	ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
 
 matrix mul with correct output
 	>>> m_a = [[1, 2], [3, 4]]
     	>>> m_b = [[5, 6], [7, 8]]
-    	>>> matrix_mul(m_a, m_b)
-    	[[19, 22], [43, 50]]
+    	>>> lazy_matrix_mul(m_a, m_b)
+	array([[19, 22],
+               [43, 50]])
