@@ -27,14 +27,19 @@ class TestMaxInteger(unittest.TestCase):
         """tests with non-int input"""
         with self.assertRaises(TypeError):
             max_integer([1, '2', 3])
-    
+
     def test_neg_pos(self):
         """tests composed input"""
         self.assertEqual(max_integer([1, -4, -5, 5, 3]), 5)
-    
+
     def test_neg(self):
         """tests negative"""
         self.assertEqual(max_integer([-1, -2, -3]), -1)
+
+    def test_list_of_one_element(self):
+        """test of one element"""
+        test_list = [42]
+        self.assertEqual(max_integer(test_list), 42)
 
 if __name__ == "__main__":
     unittest.main()
