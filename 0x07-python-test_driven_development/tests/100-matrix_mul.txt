@@ -83,3 +83,14 @@ matrix mul with correct output
     	>>> m_b = [[5, 6], [7, 8]]
     	>>> matrix_mul(m_a, m_b)
     	[[19, 22], [43, 50]]
+
+matrix mul with one matrix empty
+	m_a = [[]]
+    	m_b = [[1, 2], [3, 4]]
+	>>> matrix_mul(m_a, m_b)
+	[[19, 22], [43, 50]]
+
+	m_a = [[1, 2], [3, 4]]
+    	m_b = [[]]
+	>>> matrix_mul(m_a, m_b)
+	[[19, 22], [43, 50]]
