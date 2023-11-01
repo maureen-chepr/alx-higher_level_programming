@@ -55,3 +55,11 @@ matrix div with m_a not a list of lists
 	Traceback (most recent call last):
         ...
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+matrix div m_a with non int or float
+	>>> m_a = [[4, "a"], [7, 3]]
+        >>> m_b = [[5, 2], [8, 6]]
+        >>> matrix_divided(m_a, m_b)
+        Traceback (most recent call last):
+        ...
+	TypeError: div must be a number
