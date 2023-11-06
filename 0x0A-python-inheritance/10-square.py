@@ -31,4 +31,3 @@ class Square(Rectangle):
         """
 
         return ("[Rectangle] {}/{}".format(self.__size, self.__size))
-
