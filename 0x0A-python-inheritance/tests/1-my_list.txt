@@ -37,3 +37,14 @@ Test case for reverse order output:
 	[1, 2, 3, 4]
 	>>> print(list)
 	[4, 3, 2, 1]
+
+Test case with -ve
+	>>> list = MyList()
+	>>> list.append(-5)
+	>>> list.append(-73)
+	>>> list.append(78)
+	>>> list.append(-678)
+	>>> print(list)
+	[-5, -73, 78, -678]
+	>>> list.print_sorted()
+	[-678, -73, -5, 78]
