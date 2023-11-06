@@ -1,0 +1,34 @@
+#Test case for class MyList module
+
+Importing the function from the module:
+	>>>MyList = __import__('1-my_list').MyList
+
+Test case checking that  MyList inherits from list:
+	>>> issubclass(MyList, list)
+	True
+
+Test case for empty list:
+	>>> list = MyList()
+	>>> list.print_sorted()
+	[]
+
+Test case for correct output:
+	>>> list.print_sorted()
+	[1, 2, 3, 4]
+
+Test case to check that appending occurs:
+	>>> list.append(1)
+	>>> list.append(2)
+	>>> list.append(3)
+	>>> list.append(4)
+	>>> print(list)
+	[1, 2, 3, 4]
+
+Test case for reverse order output:
+	>>> list = MyList()
+	>>> list.append(4)
+	>>> list.append(3)
+	>>> list.append(2)
+	>>> list.append(1)
+	>>> print(list)
+	[4, 3, 2, 1]
