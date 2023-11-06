@@ -1,7 +1,7 @@
 #Test case for class MyList module
 
 
-	>>>MyList = __import__('1-my_list').MyList
+	>>> MyList = __import__('1-my_list').MyList
 
 Testing for module docstring:
     >>> m = __import__("1-my_list").__doc__
@@ -16,10 +16,6 @@ Test case for empty list:
 	>>> list = MyList()
 	>>> list.print_sorted()
 	[]
-
-Test case for correct output:
-	>>> list.print_sorted()
-	[1, 2, 3, 4]
 
 Test case to check that appending occurs:
 	>>> list.append(1)
