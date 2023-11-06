@@ -4,13 +4,6 @@
 """
 
 
-class List:
-    """
-        superclass:
-        class List
-    """
-
-
 class MyList(list):
     """
         subclass:
