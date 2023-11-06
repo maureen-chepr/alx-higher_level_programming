@@ -6,7 +6,7 @@
 
 class BaseGeometry:
     """
-        BaseGeometry Class
+        representation of BaseGeometry Class
     """
 
     def area(self):
