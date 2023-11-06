@@ -25,7 +25,7 @@ class Rectangle(BaseGeometry):
             area of The rectangle
         """
 
-        return self.__width * self.__height
+        return (self.__height * self.__width)
 
     def __str__(self):
         """
