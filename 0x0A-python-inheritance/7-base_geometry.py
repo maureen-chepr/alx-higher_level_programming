@@ -4,7 +4,7 @@
 """
 
 
-class BaseGeometry():
+class BaseGeometry:
     """
         BaseGeometry Class
     """
