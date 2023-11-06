@@ -3,6 +3,21 @@
 Importing the function from the module:
 	>>>MyList = __import__('1-my_list').MyList
 
+Test case for module docstring:
+    >>> m = __import__("1-my_list").__doc__
+    >>> len(m) > 1
+    True
+
+Test case for class docstring:
+    >>> c = __import__("1-my_list").MyList.__doc__
+    >>> len(c) > 1
+    True
+
+Test case for method docstring:
+	>>> mod = __import__("1-my_list").MyList.print_sorted.__doc__
+	>>> len(mod) > 1
+	True
+
 Test case checking that  MyList inherits from list:
 	>>> issubclass(MyList, list)
 	True
