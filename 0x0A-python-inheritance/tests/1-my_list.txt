@@ -1,6 +1,6 @@
 #Test case for class MyList module
 
-Importing the function from the module:
+
 	>>>MyList = __import__('1-my_list').MyList
 
 Testing for module docstring:
