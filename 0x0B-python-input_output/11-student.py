@@ -29,5 +29,5 @@ class Student():
         """
             replaces all attributes of the Student instance
         """
-        for i, j in json.items():
-            self.__dict__[i] = j
+         for i in json:
+            self.__dict__[i] = json[i]
