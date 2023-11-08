@@ -23,7 +23,7 @@ class Student:
         """
         if attrs is not None and all(isinstance(attr, str) for attr in attrs):
             return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict_
+        return self.__dict__
 
     def reload_from_json(self, json):
         """
