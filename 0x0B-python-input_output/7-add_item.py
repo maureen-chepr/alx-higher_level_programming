@@ -17,7 +17,7 @@ def add_items():
     """
     try:
         arg_list = load_from_json_file("add_item.json")
-    except ValueError:
+    except FileNotFoundError:
         arg_list = []
 
     arg_list.extend(argv[1:])
