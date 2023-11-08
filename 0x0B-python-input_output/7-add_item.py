@@ -9,6 +9,7 @@ from os import path
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
+
 def add_items():
     """
         adds all arguments to a Python list,
@@ -22,4 +23,6 @@ def add_items():
     arg_list.extend(argv[1:])
     save_to_json_file(arg_list, "add_item.json")
 
-add_items()
+
+if __name__ == "__main__":
+    add_items()
