@@ -113,6 +113,27 @@ class TestSquare(unittest.TestCase):
         expected_json = '[{"id": 4, "size": 5, "x": 2, "y": 3}]'
         self.assertEqual(s1_json, expected_json)
 
+    def test_create_with_dict(self):
+        """Testing create method with dictionary"""
+        d3 = {'id': 3, 'size': 7, 'x': 1, 'y': 2}
+        s8 = Square.create(**d3)
+        self.assertEqual(str(s8), "[Square] (3) 1/2 - 7")
+
+    def test_create_with_dict_and_invalid_args(self):
+        """Testing create method with dictionary and invalid arguments"""
+        d5 = {'id': 5, 'width': 8, 'height': 8, 'x': 2, 'y': 3}
+        with self.assertRaises(TypeError):
+            s10 = Square.create(**d5)
+
+    def test_load_from_file(self):
+        """Testing load_from_file method"""
+        s1 = Square(5, 2, 3, 4)
+        s2 = Square(3, 0, 1, 1)
+        Square.save_to_file([s1, s2])
+        loaded_squares = Square.load_from_file()
+        self.assertEqual(str(loaded_squares[0]), "[Square] (4) 2/3 - 5")
+        self.assertEqual(str(loaded_squares[1]), "[Square] (1) 0/1 - 3")
+
 
 if __name__ == "__main__":
     """if run as main model"""
