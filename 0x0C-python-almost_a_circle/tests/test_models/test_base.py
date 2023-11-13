@@ -19,7 +19,7 @@ class TestBase(unittest.TestCase):
     def test_no_args(self):
         """Testing no args"""
         b2 = Base()
-        self.assertEqual(b2.id, 1)
+        self.assertEqual(b2.id, 3)
 
     def test_neg_int(self):
         """Testing negative arg"""
@@ -48,6 +48,32 @@ class TestBase(unittest.TestCase):
 
         assert '"id": 9' in json_s
         assert '"width": 5' in json_s
+
+    def test_creation_with_id(self):
+        """Testing creation with specified id"""
+        b4 = Base(42)
+        self.assertEqual(b4.id, 42)
+
+    def test_id_after_creation_with_id(self):
+        """Testing id after creation with specified id"""
+        b5 = Base(42)
+        self.assertEqual(b5.id, 42)
+        b5.id = 99
+        self.assertEqual(b5.id, 99)
+
+    def test_creation_multiple_instances(self):
+        """Testing creation of multiple instances"""
+        b6 = Base()
+        b7 = Base()
+        self.assertNotEqual(b6.id, b7.id)
+
+    def test_to_json_string_with_none(self):
+        """Testing to_json_string method with None as argument"""
+        self.assertEqual(Base.to_json_string(None), "[]")
+
+    def test_to_json_string_empty_list(self):
+        """Testing to_json_string method with an empty list"""
+        self.assertEqual(Base.to_json_string([]), "[]")
 
 
 if __name__ == '__main__':
