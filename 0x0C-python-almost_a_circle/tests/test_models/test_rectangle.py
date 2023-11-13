@@ -119,6 +119,12 @@ class TestRectangle(unittest.TestCase):
         expected_json = '[{"id": 5, "width": 1, "height": 2, "x": 3, "y": 4}]'
         self.assertEqual(r1_json, expected_json)
 
+    def test_update_method(self):
+        """Testing the update method with keyword arguments"""
+        r14 = Rectangle(1, 2)
+        r14.update(id=125, width=6, height=4)
+        self.assertEqual(str(r14), "[Rectangle] (125) 0/0 - 6/4")
+
 
 if __name__ == "__main__":
     """if run as main modl"""
