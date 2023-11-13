@@ -125,7 +125,9 @@ class Rectangle(Base):
             assigns an argument to each attribute
         """
         if args:
-            super().update(*args)
+            attr_list = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                setattr(self, attr_list[i], args[i])
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)

@@ -45,7 +45,7 @@ class TestRectangle(unittest.TestCase):
     def test_normal_use(self):
         """Testing expected use case"""
         self.assertIsInstance(self.r1, Rectangle)
-        self.assertIsInstance(self.r2, Rectangle) 
+        self.assertIsInstance(self.r2, Rectangle)
 
     def test_None_as_first_arg(self):
         """Testing None as first argument"""
@@ -83,7 +83,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_print(self):
         """Testing __str__ method"""
-        self.assertEqual(str(self.r1), "[Rectangle] (1) 0/0 - 5/4" )
+        self.assertEqual(str(self.r1), "[Rectangle] (1) 0/0 - 5/4")
 
     def test_Update(self):
         """Testing update cls Rect method"""
@@ -120,8 +120,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1_json, expected_json)
 
 
-
 if __name__ == "__main__":
     """if run as main modl"""
     unittest.main()
-

@@ -36,7 +36,7 @@ class TestSquare(unittest.TestCase):
         """Test for functioning y"""
         self.assertEqual(self.s1.y, 0)
         self.assertEqual(self.s2.y, 0)
-        
+
     def test_normal_use(self):
         """Testing expected use case"""
         self.assertIsInstance(self.s1, Square)
@@ -77,12 +77,7 @@ class TestSquare(unittest.TestCase):
 
     def test_print(self):
         """Testing __str__ method"""
-        self.assertEqual(str(self.s1), "[Square] (1) 0/0 - 5" )
-
-#    def test_toDictionary(self):
-        """Testing to_dictionary Square method """
- #       s8 = Square(5)
-  #      self.assertEqual(s8.to_dictionary(), {"id": 8, "x": 0, "size": 5, "y": 0})
+        self.assertEqual(str(self.s1), "[Square] (1) 0/0 - 5")
 
     def test_Update(self):
         """Testing update cls Sqr method"""
@@ -109,7 +104,7 @@ class TestSquare(unittest.TestCase):
         """Testing no args passed"""
         with self.assertRaises(TypeError):
             s12 = Square()
-    
+
     def test_dict_to_json(self):
         """Test the conversion of dictionary to JSON string."""
         s1 = Square(5, 2, 3, 4)
@@ -118,7 +113,7 @@ class TestSquare(unittest.TestCase):
         expected_json = '[{"id": 4, "size": 5, "x": 2, "y": 3}]'
         self.assertEqual(s1_json, expected_json)
 
+
 if __name__ == "__main__":
     """if run as main model"""
     unittest.main()
-
