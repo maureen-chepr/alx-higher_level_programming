@@ -125,7 +125,75 @@ class TestRectangle(unittest.TestCase):
         r14.update(id=125, width=6, height=4)
         self.assertEqual(str(r14), "[Rectangle] (125) 0/0 - 6/4")
 
+    def test_width_typeerror_str(self):
+        """Test not int for width"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle("hello", 1)
+            with self.assertRaisesRegex(TypeError, "width must be an integer"):
+                r = Rectangle(True, 1)
+
+    def test_height_typeerror_str(self):
+        """not int for height"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r = Rectangle(1, "hello")
+            with self.assertRaisesRegex(TypeError,
+                                        "height must be an integer"):
+                r = Rectangle(1, True)
+
+    def test_y_typeerror(self):
+        """not int for y"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r = Rectangle(1, 1, 1, "hello")
+            with self.assertRaisesRegex(TypeError, "y must be an integer"):
+                r = Rectangle(1, 1, 1, True)
+
+    def test_width_valueerror(self):
+        """ints <= 0 for width"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r = Rectangle(-1, 1)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r = Rectangle(0, 1)
+
+    def test_height_valueerror(self):
+        """ints <= 0 for height"""
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r = Rectangle(1, -1)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r = Rectangle(1, 0)
+
+    def test_x_valueerror(self):
+        """ints < 0 for x"""
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r = Rectangle(1, 1, -1)
+
+    def test_y_valueerror(self):
+        """Test ints <= 0 for y"""
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r = Rectangle(1, 1, 1, -1)
+
+    def test_area_args(self):
+        """too many args for area()"""
+        with self.assertRaises(TypeError):
+            r = self.r1.area(1)
+
+    def test_display_too_many_args(self):
+        """display with too many args"""
+        with self.assertRaises(TypeError):
+            self.r1.display(1)
+
+    def test_update_no_args(self):
+        """no args for update"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        r.update()
+        self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 1/1")
+
+    def test_mix_args_kwargs(self):
+        """output for mixed args and kwargs"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        r.update(2, 2, 2, 2, 2, width=3, height=3, x=3, y=3, id=3)
+        self.assertEqual(str(r), "[Rectangle] (2) 2/2 - 2/2")
+
 
 if __name__ == "__main__":
-    """if run as main modl"""
+    """if run as main model"""
     unittest.main()
