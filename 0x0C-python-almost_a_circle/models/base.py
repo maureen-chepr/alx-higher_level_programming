@@ -133,7 +133,7 @@ class Base:
         instances = []
 
         try:
-            with open(filename, mode='r', encoding='utf-8') as file:
+            with open(filename, 'r') as file:
                 reader = csv.reader(file)
 
                 for row in reader:
@@ -152,3 +152,59 @@ class Base:
             pass
 
         return instances
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        documentation
+        """
+
+        new_list = list_rectangles + list_squares
+        try:
+            turtle.title("21. Let's draw it")
+            screen = turtle.getscreen()
+            turtle.bgcolor("black")
+            t = turtle.Turtle()
+            turtle.colormode(255)
+
+            def exit_on_click(i, j):
+                screen.exitonclick()
+
+            screen.onclick(exit_on_click)
+            screen.listen()
+            r = False
+            while True:
+                if r:
+                    shuffle(new_list)
+                height = 0
+                width = 0
+                direction = randrange(4)
+                for i in range(len(new_list)):
+                    t.color(randint(0, 255), randint(0, 255), randint(0, 255))
+                    t.begin_fill()
+                    t.pendown()
+                    for j in range(2):
+                        t.fd(new_list[i].width)
+                        t.rt(90)
+                        t.fd(new_list[i].height)
+                        t.rt(90)
+                    t.end_fill()
+                    t.penup()
+                    if direction == 0:
+                        if i != len(new_list) - 1:
+                            width += new_list[i].width + 10
+                    elif direction == 1:
+                        if i != len(new_list) - 1:
+                            width += -new_list[i + 1].width - 10
+                    elif direction == 2:
+                        if i != len(new_list) - 1:
+                            height += new_list[i + 1].height + 10
+                    elif direction == 3:
+                        if i != len(new_list) - 1:
+                            height += -new_list[i].height - 10
+                    t.goto(width, height)
+                t.goto(0, 0)
+                t.clear()
+                r = True
+        except Exception:
+            print(" process end!")
