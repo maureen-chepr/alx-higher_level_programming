@@ -1,7 +1,5 @@
 #!/usr/bin/node
 
-const args = process.argv.slice(2).map(Number);
-
 const secondBiggestInteger = (arr = []) => {
   if (arr.length <= 1) {
     console.log(0);
@@ -22,4 +20,5 @@ const secondBiggestInteger = (arr = []) => {
 
   console.log(secondLargestNum);
 };
+const args = process.argv.slice(2).map(Number);
 secondBiggestInteger(args);
