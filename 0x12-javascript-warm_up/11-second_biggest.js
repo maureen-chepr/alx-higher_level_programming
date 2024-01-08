@@ -1,5 +1,7 @@
 #!/usr/bin/node
-
+/*
+ * sorting second biggest integer
+ */
 const secondBiggestInteger = (arr = []) => {
   if (arr.length <= 1) {
     console.log(0);
