@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""script that lists all states with a name starting with N"""
+"""script that lists all states from the database hbtn_0e_0_usa"""
 import MySQLdb
 import sys
 
@@ -23,7 +23,7 @@ def main(argv):
         cursor = data.cursor()
         """creating a cursor object"""
 
-        query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC;"
+        query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;"
         """the query to select"""
 
         cursor.execute(query)
