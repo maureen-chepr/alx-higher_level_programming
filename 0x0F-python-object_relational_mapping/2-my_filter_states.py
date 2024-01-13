@@ -23,7 +23,7 @@ def main(argv):
         cursor = data.cursor()
         """creating a cursor object"""
 
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC;"
+        query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC;".format(state_name)
         """the query to select"""
 
         cursor.execute(query, (state_name,))
@@ -34,7 +34,7 @@ def main(argv):
 
         for row in rows:
             """printing all rows"""
-            if row[1] == argv[4]:
+            if row[1] == state_name:
                 print(row)
 
     except MySQLdb.Error as e:
