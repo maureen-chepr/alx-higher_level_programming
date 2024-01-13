@@ -11,22 +11,20 @@ def main(argv):
         """check for no of command lin args"""
         sys.exit(1)
 
-    username, password, database, state_name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
-    """ command line Args for MySQL credentials """
     try:
         data = MySQLdb.connect(host="localhost",
                                port=3306,
-                               user=username,
-                               passwd=password,
-                               db=database)
+                               user=argv[1],
+                               passwd=argv[2],
+                               db=argv[3])
 
         cursor = data.cursor()
         """creating a cursor object"""
 
-        query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC;".format(state_name)
+        query = "SELECT * FROM states WHERE name = '{}'".format(argv[4])
         """the query to select"""
 
-        cursor.execute(query, (state_name,))
+        cursor.execute(query)
         """query execution"""
 
         rows = cursor.fetchall()
@@ -34,7 +32,7 @@ def main(argv):
 
         for row in rows:
             """printing all rows"""
-            if row[1] == state_name:
+            if row[1] == argv[4]:
                 print(row)
 
     except MySQLdb.Error as e:
