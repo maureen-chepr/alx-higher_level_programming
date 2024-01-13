@@ -11,8 +11,7 @@ def main(argv):
         """check for no of command lin args"""
         sys.exit(1)
 
-    username, password, database, state_name = sys.argv[1], sys.argv[2],
-    sys.argv[3], sys.argv[4]
+    username, password, database, state_name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
     """ command line Args for MySQL credentials """
     try:
         data = MySQLdb.connect(host="localhost",
