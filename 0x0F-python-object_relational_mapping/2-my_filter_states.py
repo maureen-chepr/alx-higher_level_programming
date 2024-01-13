@@ -35,7 +35,8 @@ def main(argv):
 
         for row in rows:
             """printing all rows"""
-            print(row)
+            if row[1] == argv[4]:
+                print(row)
 
     except MySQLdb.Error as e:
         sys.exit(1)
