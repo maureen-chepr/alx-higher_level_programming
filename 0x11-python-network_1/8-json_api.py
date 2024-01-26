@@ -24,4 +24,4 @@ if __name__ == '__main__':
     try:
         print("[{}] {}".format(result['id'], result['name']))
     except Exception:
-        print("No result")i
+        print("No result")
