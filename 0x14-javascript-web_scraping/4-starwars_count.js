@@ -1,21 +1,11 @@
 #!/usr/bin/node
-
 const request = require('request');
+
 const apiUrl = process.argv[2];
 
-request.get(apiUrl, function (error, response, body) {
-  let moviesWithWedgeAntilles = 0;
-
+request(apiUrl, (error, response, body) => {
   if (error) {
     console.log(error);
   }
-
-  const filmsData = JSON.parse(body);
-  for (let i = 0; filmsData.results[i] !== undefined; i++) {
-    if (filmsData.results[i].characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
-      moviesWithWedgeAntilles++;
-    }
-  }
-
-  console.log(moviesWithWedgeAntilles);
+  console.log(body.split('/people/18/').length - 1);
 });
